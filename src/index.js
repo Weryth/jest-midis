@@ -17,10 +17,35 @@ async function fetchData() {
   });
 }
 
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error("Деление на ноль");
+  }
+  return a / b;
+}
+
+async function fetchUserData(userId) {
+  // Имитация запроса к API для получения данных пользователя
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ id: userId, name: "John Doe", age: 30 });
+    }, 1000);
+  });
+}
+
+function processUserData(userData) {
+  // Простая обработка данных пользователя
+  return {
+    ...userData,
+    isAdult: userData.age >= 18,
+  };
+}
 
 module.exports = {
   validateNumber,
   square,
   fetchData,
-  
+  divide,
+  fetchUserData,
+  processUserData,
 };

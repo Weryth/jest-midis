@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1705612877029" clover="3.2.0">
-  <project timestamp="1705612877029" name="All files">
-    <metrics statements="8" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="4" elements="17" coveredelements="15" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1"/>
+<coverage generated="1705613954744" clover="3.2.0">
+  <project timestamp="1705613954744" name="All files">
+    <metrics statements="11" coveredstatements="10" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="5" elements="23" coveredelements="21" complexity="0" loc="11" ncloc="11" packages="1" files="1" classes="1"/>
     <file name="index.js" path="/Users/maxpugachev/Documents/midis lern pj/jest/src/index.js">
-      <metrics statements="8" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="4"/>
+      <metrics statements="11" coveredstatements="10" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="5"/>
       <line num="2" count="8" type="cond" truecount="4" falsecount="0"/>
       <line num="3" count="3" type="stmt"/>
       <line num="5" count="5" type="stmt"/>
@@ -11,7 +11,10 @@
       <line num="13" count="1" type="stmt"/>
       <line num="14" count="1" type="stmt"/>
       <line num="15" count="1" type="stmt"/>
-      <line num="21" count="1" type="stmt"/>
+      <line num="21" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

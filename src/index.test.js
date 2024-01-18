@@ -4,7 +4,11 @@ const {
   fetchData,
   getUserDetails,
   getUser,
+  divide,
+  fetchUserData,
+  processUserData,
 } = require("./index");
+
 const { performance } = require("perf_hooks");
 
 /*
@@ -85,3 +89,32 @@ describe("Валидация проходит корректно", () => {
   });
 });
 
+describe("Функция divide", () => {
+  test("деление на ноль генерирует исключение", () => {
+    expect(() => {
+      divide(10, 0);
+    }).toThrow("Деление на ноль");
+  });
+
+  test("корректно делит числа", () => {
+    expect(divide(10, 2)).toBe(5);
+  });
+});
+
+describe("Интеграционное тестирование функций пользователя", () => {
+  test("обработка данных пользователя", async () => {
+    // Получение данных пользователя
+    const userData = await fetchUserData(1);
+
+    // Обработка данных пользователя
+    const processedData = processUserData(userData);
+
+    // Проверка результатов
+    expect(processedData).toEqual({
+      id: 1,
+      name: "John Doe",
+      age: 30,
+      isAdult: true,
+    });
+  });
+});
