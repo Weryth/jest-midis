@@ -5,13 +5,22 @@ function validateNumber(value) {
   return true;
 }
 
-
 function square(value) {
   return Math.pow(value, 2);
 }
 
-module.exports = {
-    validateNumber,
-    square
-};
+async function fetchData() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("данные получены");
+    }, 1000);
+  });
+}
 
+
+module.exports = {
+  validateNumber,
+  square,
+  fetchData,
+  
+};

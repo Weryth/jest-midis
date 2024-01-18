@@ -1,4 +1,10 @@
-const { validateNumber, square } = require("./index");
+const {
+  validateNumber,
+  square,
+  fetchData,
+  getUserDetails,
+  getUser,
+} = require("./index");
 const { performance } = require("perf_hooks");
 
 /*
@@ -46,18 +52,36 @@ test("validateNumber должна выполняться быстро", () => {
 });
 
 */
-describe('validateNumber', () => {
-    test('должна возвращать true для чисел в диапазоне 0-100', () => {
-      expect(validateNumber(50)).toBe(true);
-      expect(validateNumber(0)).toBe(true);
-      expect(validateNumber(100)).toBe(true);
-    });
-  
-    test('должна возвращать false для чисел меньше 0', () => {
-      expect(validateNumber(-1)).toBe(false);
-    });
-  
-    test('должна возвращать false для чисел больше 100', () => {
-      expect(validateNumber(101)).toBe(false);
-    });
+describe("validateNumber", () => {
+  test("должна возвращать true для чисел в диапазоне 0-100", () => {
+    expect(validateNumber(50)).toBe(true);
+    expect(validateNumber(0)).toBe(true);
+    expect(validateNumber(100)).toBe(true);
   });
+
+  test("должна возвращать false для чисел меньше 0", () => {
+    expect(validateNumber(-1)).toBe(false);
+  });
+
+  test("должна возвращать false для чисел больше 100", () => {
+    expect(validateNumber(101)).toBe(false);
+  });
+});
+
+describe("async", () => {
+  test('fetchData возвращает "данные получены"', async () => {
+    const data = await fetchData();
+    expect(data).toBe("данные получены");
+  });
+});
+
+describe("Валидация проходит корректно", () => {
+  test.each([
+    [5, true],
+    [-5, false],
+    [100, true],
+  ])("для %i ожидается %i", (param, expected) => {
+    expect(validateNumber(param)).toBe(expected);
+  });
+});
+
